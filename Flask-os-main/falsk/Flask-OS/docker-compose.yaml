@@ -1,4 +1,4 @@
-version: '3.1'
+ersion: '3.1'
 
 services:
   app:
@@ -17,17 +17,19 @@ services:
     ports:
       - 8000:8000
     environment:
-      SQLALCHEMY_DATABASE_URI: ${DB_URI}
+      SQLALCHEMY_DATABASE_URI: ${SQLALCHEMY_DATABASE_URI}
+      db_user: ${db_user}
+      db_pass: ${db_pass}
+  
+
   db:
     image: mariadb
-##     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
 
   adminer:
     image: adminer
-##     restart: always
     ports:
       - 5000:5000
 
